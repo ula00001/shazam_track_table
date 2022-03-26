@@ -1,21 +1,31 @@
-import { useCallback } from 'react';
+import { useCallback, useState } from 'react';
 
 export const useHttp = () => {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-    const request = useCallback(async (url, options) => {
-
-    try {
-      const response = await fetch(url, options);
-      const data = await response.json();
-
-      return data.toptracks.track;
-    } catch (e) {
-      console.log(e.message);
-      throw e;
+  const request = useCallback(async (url, options) => {
+  setLoading(true);
+  try {
+    const response = await fetch(url, options);
+    const data = await response.json();
+    if (!response.ok) {
+      throw new Error(`Could not fetch ${url}`);
     }
+    setLoading(false);
+
+    return data.toptracks.track;
+  } catch (e) {
+    setLoading(false);
+    setError(e.message);
+    console.log(e.message);
+    throw e;
+  }
 
   }, []);
 
-  return { request };
+  const clearError = useCallback(() => setError(null));
+
+  return { loading, request, error, clearError };
 
 }

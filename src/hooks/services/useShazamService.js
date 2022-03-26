@@ -1,7 +1,7 @@
 import { useHttp } from '../useHttp';
 
 const useShazamService = () => {
-  const { request } = useHttp();
+  const { loading, request, error, clearError } = useHttp();
     const _api = 'https://ws.audioscrobbler.com/2.0/?method=user.gettoptracks&user=rj&api_key=75df4c0dd1c2d1c7cd0bbbc551f3d373&format=json';
     const options = {
         method: 'GET',
@@ -16,7 +16,7 @@ const useShazamService = () => {
     return res
     }
 
-  return { getTracks };
+  return { getTracks, loading, error, clearError };
 }
 
 export default useShazamService;
