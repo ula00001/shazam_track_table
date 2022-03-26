@@ -1,0 +1,77 @@
+table {
+  width: 100%;
+  margin-bottom: 80px;
+  font-family: 'Ubuntu';
+  color: #7E7E7E !important;
+}
+.table>:not(caption)>*>* {
+  border-bottom-width: 0px !important;
+}
+.table {
+  margin: 0 auto;
+    td, th {
+      border: none;
+      padding: 5px;
+    }
+    td:nth-child(1) {
+      width: 62.1px;
+      padding: 5.87px 7.54px 6.71px 20.95px;
+      img {
+        border-radius: 5px;
+        margin: 0px !important;
+      }
+    }
+    td:nth-child(2) {
+      padding-left: 0px;
+      color: #000000;
+      font-weight: 400;
+      font-size: 14px;
+    }
+    td:nth-child(3) {
+      padding-left: 0px;
+      font-size: 12px;
+    }
+    td:nth-child(4) {
+      padding-left: 0px;
+      font-size: 12px;
+    }
+    tr:nth-child(even) {
+      background-color: #FAFAFA;;
+    }
+    tr:nth-child(1):hover{
+      background-color: unset;
+    }
+    tr:hover {
+      background-color: rgb(243, 243, 243);
+    }
+    th {
+      text-transform: uppercase;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      padding: 6.12px 0px;
+      i {
+        margin: 5px;
+      }
+    }
+      a {
+        &:hover {
+          background-color: #7E7E7E;
+          transition: 0.5s;
+          color: #FFF;
+        }
+        display: block;
+        margin-left: auto;
+        text-decoration: none;
+        width: 60px;
+        height: 20px;
+        font-family: 'Ubuntu Mono';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        color: #7E7E7E;
+        border: 1px solid #7E7E7E;
+        border-radius: 4px;
+        padding: 0px 12px;
+      }
+}
